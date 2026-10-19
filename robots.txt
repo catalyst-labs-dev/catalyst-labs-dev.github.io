@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://catalyst-labs-dev.github.io/sitemap.xml
