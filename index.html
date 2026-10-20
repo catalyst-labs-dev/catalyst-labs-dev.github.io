@@ -93,6 +93,18 @@ footer{border-top:1px solid var(--line);margin-top:72px;padding:28px 0;color:var
   </article>
 
   <article class="tool">
+    <header><img src="assets/podcast.jpg" alt=""><div><h3>Podcast Transcript API</h3><div class="tag">RSS feeds, Apple Podcasts, episode pages, MP3</div></div></header>
+    <ul>
+      <li>Uses the show's own published transcript first, with speaker labels. Speech-to-text (Whisper large-v3) only when there is none.</li>
+      <li><b>10/10</b> in our podcast head-to-head. The other four Store tools scored 2–6.</li>
+      <li>Text, LLM text, segments, SRT, VTT, Markdown and chapters. <code>onlyNewEpisodes</code> to monitor shows.</li>
+      <li>Spending, minute and episode-length caps. Failed or silent episodes are never charged.</li>
+    </ul>
+    <div class="price">$0.01 per publisher transcript · $0.009 → $0.006 per audio minute · no run fee</div>
+    <div class="links"><a href="https://apify.com/catalyst-labs/podcast-transcript-api">Open on Apify →</a></div>
+  </article>
+
+  <article class="tool">
     <header><img src="assets/screenshot.png" alt=""><div><h3>Website Screenshot &amp; PDF API</h3><div class="tag">PNG, JPEG, WebP, PDF · desktop to mobile</div></div></header>
     <ul>
       <li>Clicks "Accept" on cookie walls. Cleared both EU consent walls in our 6-tool test.</li>
@@ -122,11 +134,11 @@ footer{border-top:1px solid var(--line);margin-top:72px;padding:28px 0;color:var
 <p><a class="btn ghost" style="margin-left:0" href="https://github.com/catalyst-labs-dev/catalyst-labs-mcp/tree/main/benchmarks">Read the benchmark summary →</a></p>
 
 <h2 id="agents">For AI agents (MCP)</h2>
-<p class="muted">Each tool is a remote MCP server hosted by Apify. Sign in with Apify (OAuth) or pass an API token. All three are listed in the official MCP Registry under <code>io.github.catalyst-labs-dev</code>.</p>
+<p class="muted">Each tool is a remote MCP server hosted by Apify. Sign in with Apify (OAuth) or pass an API token. All four are listed in the official MCP Registry under <code>io.github.catalyst-labs-dev</code>.</p>
 <pre><code>{
   "mcpServers": {
     "catalyst-labs": {
-      "url": "https://mcp.apify.com/?tools=catalyst-labs/youtube-transcript-api,catalyst-labs/website-screenshot-pdf-api,catalyst-labs/career-site-jobs-scraper"
+      "url": "https://mcp.apify.com/?tools=catalyst-labs/youtube-transcript-api,catalyst-labs/website-screenshot-pdf-api,catalyst-labs/career-site-jobs-scraper,catalyst-labs/podcast-transcript-api"
     }
   }
 }</code></pre>
