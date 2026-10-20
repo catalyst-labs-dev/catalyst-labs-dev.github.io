@@ -1,0 +1,43 @@
+# Catalyst Labs
+
+> Apify Actors (APIs and MCP tools) for AI agents: job listings from ATS career sites, website screenshots/PDFs, YouTube transcripts.
+
+## Tools
+- [YouTube Transcript API for AI Agents (MCP, JSON, SRT)](https://catalyst-labs-dev.github.io/guides/youtube-transcript-api-for-ai-agents.html): How to give an AI agent YouTube transcripts with timestamps via an MCP server or REST API: videos, Shorts, channels, playlists and search. Store: https://apify.com/catalyst-labs/youtube-transcript-api MCP: https://mcp.apify.com/?tools=catalyst-labs/youtube-transcript-api
+- [How to Scrape Greenhouse, Lever and Workday Jobs as JSON](https://catalyst-labs-dev.github.io/guides/scrape-greenhouse-lever-workday-jobs.html): Get live job listings from Greenhouse, Lever, Workday, Ashby and 13 more ATS career sites in one normalized JSON schema. Store: https://apify.com/catalyst-labs/career-site-jobs-scraper MCP: https://mcp.apify.com/?tools=catalyst-labs/career-site-jobs-scraper
+- [Website Screenshot & PDF API: Full-Page PNG and PDF from Any URL](https://catalyst-labs-dev.github.io/guides/website-screenshot-pdf-api.html): Turn a URL into a full-page PNG, JPEG, WebP screenshot or PDF with cookie banners removed and lazy images loaded. API and MCP examples. Store: https://apify.com/catalyst-labs/website-screenshot-pdf-api MCP: https://mcp.apify.com/?tools=catalyst-labs/website-screenshot-pdf-api
+
+
+## YouTube Transcript API for AI Agents (MCP, JSON, SRT)
+
+AI agents often need the words spoken in a video: to summarise it, research a competitor channel or answer questions. Our YouTube Transcript API on Apify returns transcripts with timestamps plus video metadata as JSON, SRT, VTT, plain text or Markdown.
+Option 1: connect it to an agent over MCP
+Add this MCP server URL to Claude, Cursor or any MCP client (Apify token required):
+https://mcp.apify.com/?tools=catalyst-labs/youtube-transcript-api
+The agent gets one tool that takes video, Shorts, playlist, channel or search inputs.
+Option 2: call the REST API
+curl -X POST "https://api.apify.com/v2/acts/catalyst-labs~youtube-transcript-api/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"startUrls":["https://www.youtube.com/watch?v=dQw4w9WgXcQ"]}'
+Check the input tab on the Store page for the exact field names and options.
+What you getTimestamped segments plus full text, with auto-generated vs human captions flaggedLanguage choice and a free check of which caption languages existChannel monitoring that only returns new videos, with date filtersYou pay only for transcripts delivered: $0.005 per run + $0.008 per transcript on the Free plan, lower on higher tiers
+LimitsVideos with no captions return no transcript (and aren't charged).
+
+## How to Scrape Greenhouse, Lever and Workday Jobs as JSON
+
+Most companies post jobs on an applicant tracking system (ATS) such as Greenhouse, Lever, Workday or Ashby. Each one has a different page layout and API. Our Career Site Jobs Scraper reads 17 ATS platforms and returns one schema: title, location, remote flag, salary, seniority and apply URL.
+InputGive it company names (it finds the career site) or careers/job-board URLs, such as https://boards.greenhouse.io/<company>, https://jobs.lever.co/<company> or a myworkdayjobs.com link.
+Over MCP for AI agentshttps://mcp.apify.com/?tools=catalyst-labs/career-site-jobs-scraper
+Useful featuresKeyword, location, remote-only, posted-since and salary filtersMonitoring mode that reports new and closed jobs since the last runErrors, not-found companies and duplicates are not charged
+Tested numbersIn our Oct 2026 QA, 52 of 52 per-platform cloud cases passed across 17 platforms. NVIDIA, Bosch and JPMorgan Chase boards together (15,057 jobs) came back in 45 seconds with 0 duplicates, and 745 sampled records had 0 schema violations.
+LimitsName auto-detection can pick a different company that shares the same name (2 of 20 in testing). Pass the careers URL for those.
+
+## Website Screenshot & PDF API: Full-Page PNG and PDF from Any URL
+
+Our Website Screenshot & PDF API captures full-page screenshots (PNG, JPEG, WebP) and PDFs of any URL, with desktop, tablet and mobile presets.
+Call it from codecurl -X POST "https://api.apify.com/v2/acts/catalyst-labs~website-screenshot-pdf-api/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+  -H "Content-Type: application/json" -d '{"urls":["https://example.com"]}'
+See the Store page input tab for exact field names (format, device, PDF options, fast mode).
+For AI agents (MCP)https://mcp.apify.com/?tools=catalyst-labs/website-screenshot-pdf-api
+What it handlesRemoves cookie banners and fixes sticky headersScrolls to load lazy imagesRenders emoji and CJK textYou pay only for successful captures
+How we testedIn an Oct 18, 2026 benchmark we ran the same 12 URLs, at the same settings, through ours and five other Store screenshot tools, including the most-used one. Pages with heavy animation can still need tweaking; we publish where we lost, not only where we won.

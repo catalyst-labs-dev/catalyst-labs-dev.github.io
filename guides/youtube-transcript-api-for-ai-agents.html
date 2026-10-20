@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YouTube Transcript API for AI Agents (MCP, JSON, SRT)</title><meta name="description" content="How to give an AI agent YouTube transcripts with timestamps via an MCP server or REST API: videos, Shorts, channels, playlists and search."><link rel="canonical" href="https://catalyst-labs-dev.github.io/guides/youtube-transcript-api-for-ai-agents.html">
+<meta property="og:type" content="article"><meta property="og:title" content="YouTube Transcript API for AI Agents (MCP, JSON, SRT)"><meta property="og:description" content="How to give an AI agent YouTube transcripts with timestamps via an MCP server or REST API: videos, Shorts, channels, playlists and search."><meta property="og:url" content="https://catalyst-labs-dev.github.io/guides/youtube-transcript-api-for-ai-agents.html"><meta property="og:image" content="https://catalyst-labs-dev.github.io/assets/logo.png"><meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "YouTube Transcript API for AI Agents (MCP, JSON, SRT)", "description": "How to give an AI agent YouTube transcripts with timestamps via an MCP server or REST API: videos, Shorts, channels, playlists and search.", "url": "https://catalyst-labs-dev.github.io/guides/youtube-transcript-api-for-ai-agents.html", "datePublished": "2026-10-20", "author": {"@type": "Organization", "name": "Catalyst Labs", "url": "https://catalyst-labs-dev.github.io"}}</script>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;line-height:1.6;background:#0b0f1a;color:#e6e9f0}a{color:#7cc4ff}pre{background:#151b2b;padding:1rem;overflow:auto;white-space:pre-wrap}</style></head>
+<body><p><a href="/">Catalyst Labs</a> / Guides</p><h1>YouTube Transcript API for AI Agents (MCP, JSON, SRT)</h1><p>AI agents often need the words spoken in a video: to summarise it, research a competitor channel or answer questions. Our <a href="https://apify.com/catalyst-labs/youtube-transcript-api">YouTube Transcript API</a> on Apify returns transcripts with timestamps plus video metadata as JSON, SRT, VTT, plain text or Markdown.</p>
+<h2>Option 1: connect it to an agent over MCP</h2>
+<p>Add this MCP server URL to Claude, Cursor or any MCP client (Apify token required):</p>
+<pre>https://mcp.apify.com/?tools=catalyst-labs/youtube-transcript-api</pre>
+<p>The agent gets one tool that takes video, Shorts, playlist, channel or search inputs.</p>
+<h2>Option 2: call the REST API</h2>
+<pre>curl -X POST "https://api.apify.com/v2/acts/catalyst-labs~youtube-transcript-api/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"startUrls":["https://www.youtube.com/watch?v=dQw4w9WgXcQ"]}'</pre>
+<p>Check the input tab on the Store page for the exact field names and options.</p>
+<h2>What you get</h2><ul><li>Timestamped segments plus full text, with auto-generated vs human captions flagged</li><li>Language choice and a free check of which caption languages exist</li><li>Channel monitoring that only returns new videos, with date filters</li><li>You pay only for transcripts delivered: $0.005 per run + $0.008 per transcript on the Free plan, lower on higher tiers</li></ul>
+<h2>Limits</h2><p>Videos with no captions return no transcript (and aren't charged).</p>
+<p><a href="https://apify.com/catalyst-labs/youtube-transcript-api">Try it on the Apify Store</a></p></body></html>

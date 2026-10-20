@@ -1,0 +1,8 @@
+# Catalyst Labs
+
+> Apify Actors (APIs and MCP tools) for AI agents: job listings from ATS career sites, website screenshots/PDFs, YouTube transcripts.
+
+## Tools
+- [YouTube Transcript API for AI Agents (MCP, JSON, SRT)](https://catalyst-labs-dev.github.io/guides/youtube-transcript-api-for-ai-agents.html): How to give an AI agent YouTube transcripts with timestamps via an MCP server or REST API: videos, Shorts, channels, playlists and search. Store: https://apify.com/catalyst-labs/youtube-transcript-api MCP: https://mcp.apify.com/?tools=catalyst-labs/youtube-transcript-api
+- [How to Scrape Greenhouse, Lever and Workday Jobs as JSON](https://catalyst-labs-dev.github.io/guides/scrape-greenhouse-lever-workday-jobs.html): Get live job listings from Greenhouse, Lever, Workday, Ashby and 13 more ATS career sites in one normalized JSON schema. Store: https://apify.com/catalyst-labs/career-site-jobs-scraper MCP: https://mcp.apify.com/?tools=catalyst-labs/career-site-jobs-scraper
+- [Website Screenshot & PDF API: Full-Page PNG and PDF from Any URL](https://catalyst-labs-dev.github.io/guides/website-screenshot-pdf-api.html): Turn a URL into a full-page PNG, JPEG, WebP screenshot or PDF with cookie banners removed and lazy images loaded. API and MCP examples. Store: https://apify.com/catalyst-labs/website-screenshot-pdf-api MCP: https://mcp.apify.com/?tools=catalyst-labs/website-screenshot-pdf-api
