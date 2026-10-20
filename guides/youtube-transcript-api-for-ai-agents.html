@@ -11,8 +11,8 @@
 <h2>Option 2: call the REST API</h2>
 <pre>curl -X POST "https://api.apify.com/v2/acts/catalyst-labs~youtube-transcript-api/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"startUrls":["https://www.youtube.com/watch?v=dQw4w9WgXcQ"]}'</pre>
-<p>Check the input tab on the Store page for the exact field names and options.</p>
+  -d '{"videos":["https://www.youtube.com/watch?v=jNQXAC9IVRw"],"languages":["en"],"outputFormats":["text","segments"]}'</pre>
+<p><code>videos</code> also takes Shorts, playlist and channel URLs; use <code>searchQueries</code> for YouTube search. Set <code>"mode":"listCaptionTracks"</code> to check available caption languages for free. Full options are on the Store page input tab.</p>
 <h2>What you get</h2><ul><li>Timestamped segments plus full text, with auto-generated vs human captions flagged</li><li>Language choice and a free check of which caption languages exist</li><li>Channel monitoring that only returns new videos, with date filters</li><li>You pay only for transcripts delivered: $0.005 per run + $0.008 per transcript on the Free plan, lower on higher tiers</li></ul>
 <h2>Limits</h2><p>Videos with no captions return no transcript (and aren't charged).</p>
 <p><a href="https://apify.com/catalyst-labs/youtube-transcript-api">Try it on the Apify Store</a></p></body></html>

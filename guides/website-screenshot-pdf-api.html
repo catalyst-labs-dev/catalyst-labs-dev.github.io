@@ -5,8 +5,8 @@
 <style>body{font-family:system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;line-height:1.6;background:#0b0f1a;color:#e6e9f0}a{color:#7cc4ff}pre{background:#151b2b;padding:1rem;overflow:auto;white-space:pre-wrap}</style></head>
 <body><p><a href="/">Catalyst Labs</a> / Guides</p><h1>Website Screenshot & PDF API: Full-Page PNG and PDF from Any URL</h1><p>Our <a href="https://apify.com/catalyst-labs/website-screenshot-pdf-api">Website Screenshot &amp; PDF API</a> captures full-page screenshots (PNG, JPEG, WebP) and PDFs of any URL, with desktop, tablet and mobile presets.</p>
 <h2>Call it from code</h2><pre>curl -X POST "https://api.apify.com/v2/acts/catalyst-labs~website-screenshot-pdf-api/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" -d '{"urls":["https://example.com"]}'</pre>
-<p>See the Store page input tab for exact field names (format, device, PDF options, fast mode).</p>
+  -H "Content-Type: application/json" -d '{"urls":["https://example.com"],"formats":["png","pdf"],"fullPage":true}'</pre>
+<p><code>formats</code> accepts png, jpeg, webp and pdf. Other options include <code>device</code>, <code>fastMode</code> and the <code>pdf*</code> settings; see the Store page input tab.</p>
 <h2>For AI agents (MCP)</h2><pre>https://mcp.apify.com/?tools=catalyst-labs/website-screenshot-pdf-api</pre>
 <h2>What it handles</h2><ul><li>Removes cookie banners and fixes sticky headers</li><li>Scrolls to load lazy images</li><li>Renders emoji and CJK text</li><li>You pay only for successful captures</li></ul>
 <h2>How we tested</h2><p>In an Oct 18, 2026 benchmark we ran the same 12 URLs, at the same settings, through ours and five other Store screenshot tools, including the most-used one. Pages with heavy animation can still need tweaking; we publish where we lost, not only where we won.</p>
